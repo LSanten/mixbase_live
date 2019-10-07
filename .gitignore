@@ -1,0 +1,7 @@
+testing.ipynb
+.ipynb_checkpoints
+
+__pycache__/
+webapp/__pycache__/
+.pyc
+venv/

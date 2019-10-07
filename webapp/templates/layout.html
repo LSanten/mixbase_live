@@ -35,8 +35,8 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-              <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+              <!--<a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+              <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>-->
             </div>
           </div>
         </div>
@@ -58,15 +58,16 @@
           </div>
           <div class="col-md-4">
             <div class="content-section">
+              <hr>
+              <h3>What is <b>Mix</b>Base?</h3>
+              <p class='text-muted'>MixBase is a handy DJ-transition manager that saves your transitions in a database and makes them easily accessible to you and your friends.
+              <br>
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}" >Save New Pair</a></li>
                 <li class="list-group-item list-group-item-light"><a href="{{ url_for('singlesong')}}" >Save New Song (NOT Transition)</a></li>
                 <li class="list-group-item list-group-item-light"><a href="{{ url_for('transitions') }}" >Transition-Database</a></li>
               </ul>
-              <hr>
-              <h3>What is <b>Mix</b>Base?</h3>
-              <p class='text-muted'>MixBase is a handy DJ-transition manager that saves your transitions in a database and makes them easily accessible to you and your friends.
-              <br><br>Feel free to check out the code on GitHub.<br><br>
+              <br><br>
               <h5>Useful Links</h5>
 
                 <ul class="list-group">
