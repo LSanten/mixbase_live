@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+  <!-- if argument title is passed in webapp_run.py, it will be used as title in browser -->
+  {% if title %}
+    <title>MixBase - {{ title }}</title>
+  {% else %}
+    <title>No title given</title>
+  {% endif %}
+
+</head>
+<body>
+  <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/"><b>Mix</b>Base</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{{ url_for('home') }}"><b>Save New Pair</b></a>
+              <a class="nav-item nav-link" href="{{ url_for('singlesong') }}"><b>Save Single Song</b></a>
+              <a class="nav-item nav-link" href="{{ url_for('transitions') }}">Database</a>
+              <a class="nav-item nav-link" href="hello/debug">Debug</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+              <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+        <div class="row">
+          <div class="col-md-8">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert altert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor%}
+              {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+          </div>
+          <div class="col-md-4">
+            <div class="content-section">
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light"><a href="{{ url_for('home') }}" >Save New Pair</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{{ url_for('singlesong')}}" >Save New Song (NOT Transition)</a></li>
+                <li class="list-group-item list-group-item-light"><a href="{{ url_for('transitions') }}" >Transition-Database</a></li>
+              </ul>
+              <hr>
+              <h3>What is <b>Mix</b>Base?</h3>
+              <p class='text-muted'>MixBase is a handy DJ-transition manager that saves your transitions in a database and makes them easily accessible to you and your friends.
+              <br><br>Feel free to check out the code on GitHub.<br><br>
+              <h5>Useful Links</h5>
+
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-light"><a href="https://github.com/LSanten/MixBase" target="_blank">This App's GitHub Repository</a></li>
+                  <li class="list-group-item list-group-item-light"><a href="http://everynoise.com/" target="_blank">Everynoise - Genre Map</a></li>
+                </ul><br>
+                <h5>Beatport Links</h5>
+
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-light"><a href="https://www.beatport.com/genre/tech-house/11" target="_blank">Tech House</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="https://www.beatport.com/genre/techno/6" target="_blank">Techno</a></li>
+                    <li class="list-group-item list-group-item-light"><a href="https://www.beatport.com/releases/all?genres=11%2C6%2C90&type=Release" target="_blank">Techhouse/Techno<br><b>Latest Releases</b></a></li>
+                  </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

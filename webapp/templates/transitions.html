@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% for pair in pairs %}
+<article class="media content-section">
+<div class="media-body">
+  <div class="article-metadata">
+    <a class="mr-2" href="#">{{ pair.user_id.username }}</a>
+    <small class="text-muted">{{ pair.date_posted }}</small>
+  </div>
+  <h3><a class="article-title" href="#">{{ pair.firstname }}</a> - {{ pair.firstartist }}</h3>
+  <h3><a class="article-title" href="#">{{ pair.secondname }}</a> - {{ pair.secondartist }}</h3>
+  <p class="article-content">{{ pair.comment }}</p>
+</div>
+</article>
+{% endfor %}
+
+{% endblock content %}
+
+
+r = db.engine.execute('select firstname, secondname from Pair')
+>>> for i in r:
+...     i
+
+
+from webapp.models import Pair
