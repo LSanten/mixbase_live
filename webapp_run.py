@@ -11,5 +11,5 @@ This webapp was developed with the great tutorials by Corey Schafer - https://ww
 from webapp import app #imports from __init__.py
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
     webbrowser.open_new("http://127.0.0.1:5000/")
