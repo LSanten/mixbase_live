@@ -6,3 +6,4 @@ webapp/__pycache__/
 .pyc
 venv/
 webapp/webmix.db
+webmix.db

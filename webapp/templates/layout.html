@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
   <!-- if argument title is passed in webapp_run.py, it will be used as title in browser -->
   {% if title %}
@@ -30,8 +32,8 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('home') }}"><b>Save New Pair</b></a>
               <a class="nav-item nav-link" href="{{ url_for('singlesong') }}"><b>Save Single Song</b></a>
-              <a class="nav-item nav-link" href="{{ url_for('transitions') }}">Database</a>
-              <a class="nav-item nav-link" href="hello/debug">Debug</a>
+              <a class="nav-item nav-link" href="{{ url_for('transitions') }}">Show Database</a>
+              <!--<a class="nav-item nav-link" href="hello/debug">Debug</a>-->
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -58,7 +60,6 @@
           </div>
           <div class="col-md-4">
             <div class="content-section">
-              <hr>
               <h3>What is <b>Mix</b>Base?</h3>
               <p class='text-muted'>MixBase is a handy DJ-transition manager that saves your transitions in a database and makes them easily accessible to you and your friends.
               <br>
@@ -67,7 +68,8 @@
                 <li class="list-group-item list-group-item-light"><a href="{{ url_for('singlesong')}}" >Save New Song (NOT Transition)</a></li>
                 <li class="list-group-item list-group-item-light"><a href="{{ url_for('transitions') }}" >Transition-Database</a></li>
               </ul>
-              <br><br>
+              <hr>
+              <br>
               <h5>Useful Links</h5>
 
                 <ul class="list-group">
