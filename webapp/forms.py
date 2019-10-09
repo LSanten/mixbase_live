@@ -51,4 +51,4 @@ class PairForm(FlaskForm): #Form for saving transition in database
 
     comment = TextAreaField('Any comments?')
 
-    submit = SubmitField('Enter Transition')
+    submit = SubmitField('Save to Database')
