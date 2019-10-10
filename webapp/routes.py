@@ -10,7 +10,7 @@ def home():
     form = PairForm()
     if form.validate_on_submit():
         #user = current_user.id or something
-        pair = Pair(firstname=form.firstname.data, secondname=form.secondname.data, firstartist=form.firstartist.data, secondartist=form.secondartist.data, comment=form.comment.data) ## TODO: add user_id info from current user ID # create pair instance with input from form
+        pair = Pair(firstname=form.firstname.data, secondname=form.secondname.data, firstartist=form.firstartist.data, secondartist=form.secondartist.data, comment=form.comment.data, firstgenre=form.firstgenre.data, secondgenre=form.secondgenre.data, guestname=form.guestname.data) ## TODO: add user_id info from current user ID
         db.session.add(pair)
         db.session.commit() # adds user to database
         flash(f'Success! Your transition was added. {form.firstname.data} and {form.secondname.data}!', 'success')
@@ -22,7 +22,7 @@ def singlesong():
     form = PairForm()
     if form.validate_on_submit():
         #user = current_user.id or something
-        pair = Pair(firstname=form.firstname.data, secondname=form.secondname.data, firstartist=form.firstartist.data, secondartist=form.secondartist.data, comment=form.comment.data) ## TODO: add user_id info from current user ID # create pair instance with input from form
+        pair = Pair(firstname=form.firstname.data, secondname=form.secondname.data, firstartist=form.firstartist.data, secondartist=form.secondartist.data, comment=form.comment.data, guestname=form.guestname.data) ## TODO: add user_id info from current user ID # create pair instance with input from form
         db.session.add(pair)
         db.session.commit() # adds user to database
         flash(f'Success! Your single song was added. {form.firstname.data} - {form.firstartist.data}!', 'success')

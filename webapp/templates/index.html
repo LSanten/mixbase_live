@@ -6,6 +6,19 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4"><b>Save New Song Pair</b></legend>
                 <p>Enter the transition that you want to save below.</p>
+                <div class="form-group">
+                    {{ form.guestname.label(class="form-control-label") }}
+                    {% if form.guestname.errors %}
+                        {{ form.guestname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.guestname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor%}
+                        </div>
+                    {% else %}
+                        {{ form.guestname(class="form-control form-control-lg") }}
+                    {% endif%}
+                </div>
                 <h4>Song A</h4>
                 <div class="form-group">
                     {{ form.firstname.label(class="form-control-label") }}
@@ -78,6 +91,34 @@
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            <small class="text-muted">If your transition is between two different genres, fill out below!</small>
+            <hr>
+            <div class="form-group">
+                {{ form.firstgenre.label(class="form-control-label") }}
+                {% if form.firstgenre.errors %}
+                    {{ form.firstgenre(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.firstgenre.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.firstgenre(class="form-control form-control-lg") }}
+                {% endif%}
+            </div>
+            <div class="form-group">
+                {{ form.secondgenre.label(class="form-control-label") }}
+                {% if form.secondgenre.errors %}
+                    {{ form.secondgenre(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.secondgenre.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.secondgenre(class="form-control form-control-lg") }}
+                {% endif%}
             </div>
         </form>
     </div>

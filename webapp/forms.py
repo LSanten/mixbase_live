@@ -39,6 +39,8 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
 class PairForm(FlaskForm): #Form for saving transition in database
+    guestname = StringField('Your name')
+
     firstname = StringField('Name A', validators=[DataRequired()])
 
     firstartist = StringField('Artist A', validators=[DataRequired()])
@@ -49,6 +51,10 @@ class PairForm(FlaskForm): #Form for saving transition in database
     #secondartist = StringField('Artist B', validators=[DataRequired()])
     secondartist = StringField('Artist B')
 
-    comment = TextAreaField('Any comments?')
+    comment = TextAreaField('Any notes?')
 
     submit = SubmitField('Save to Database')
+
+    firstgenre = StringField('Genre A')
+
+    secondgenre = StringField('Genre B')

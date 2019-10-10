@@ -5,7 +5,19 @@
             {{ form.hidden_tag() }}<!--for protection-->
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4"><b>Save a Single Good Song</b></legend>
-
+                <div class="form-group">
+                    {{ form.guestname.label(class="form-control-label") }}
+                    {% if form.guestname.errors %}
+                        {{ form.guestname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.guestname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor%}
+                        </div>
+                    {% else %}
+                        {{ form.guestname(class="form-control form-control-lg") }}
+                    {% endif%}
+                </div>
                 <h4>Your Song</h4>
                 <div class="form-group">
                     {{ form.firstname.label(class="form-control-label") }}

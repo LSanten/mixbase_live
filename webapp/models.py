@@ -32,6 +32,10 @@ class Pair(db.Model): #data table for transition pair
     comment = db.Column(db.Text)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), default=1) ## TODO: change nullable back to False when login works
+    guestname = db.Column(db.String(30), nullable=True)
+    firstgenre = db.Column(db.String(30), nullable=True)
+    secondgenre = db.Column(db.String(30), nullable=True)
+    tags = db.Column(db.Text)
     # genre switch #TODO: drop down menu --> genre to genres
     # tags #TODO: type of transition
 
