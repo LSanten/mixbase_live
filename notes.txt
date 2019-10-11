@@ -1,0 +1,10 @@
+
+
+
+r = db.engine.execute('select firstname, secondname from Pair')
+>>> for i in r:
+...     i
+
+
+from webapp.models import Pair
+
