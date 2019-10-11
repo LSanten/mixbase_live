@@ -4,5 +4,3 @@ __pycache__/
 .pyc
 webapp/webmix.db
 webmix.db
-venv
-venv/
