@@ -8,9 +8,9 @@
     <a class="mr-2" href="#">{{ pair.user_id.username }}{{ pair.guestname }}</a>
     <small class="text-muted">{{ pair.date_posted }}</small>
   </div>
-  <h3>{{ pair.firstname }} - {{ pair.firstartist }}</h3>
+  <h3>{{ pair.firstname }} <i>by</i> {{ pair.firstartist }}</h3>
   {% if pair.secondname %}
-  <h3>{{ pair.secondname }} - {{ pair.secondartist }}</h3>
+  <h3>{{ pair.secondname }} <i>by</i> {{ pair.secondartist }}</h3>
   {% endif%}
   <p class="article-content">{{ pair.comment }}</p>
 </div>

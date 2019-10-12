@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect
 from webapp import app, db, bcrypt
-from webapp.forms import RegistrationForm, LoginForm, PairForm
+from webapp.forms import RegistrationForm, LoginForm, PairForm, SingleForm
 from webapp.models import User, Pair
 from flask_login import login_user, current_user
 
@@ -15,19 +15,19 @@ def home():
         db.session.commit() # adds user to database
         flash(f'Success! Your transition was added. {form.firstname.data} and {form.secondname.data}!', 'success')
         return redirect(url_for('home'))
-    return render_template('index.html', title="Home", form=form)
+    return render_template('index.html', title="Save DJ Transition", form=form)
 
 @app.route('/singlesong', methods=['GET', 'POST']) #'/' tells us that it's the index of a page | access via  http://127.0.0.1:5000/
 def singlesong():
-    form = PairForm()
+    form = SingleForm()
     if form.validate_on_submit():
         #user = current_user.id or something
-        pair = Pair(firstname=form.firstname.data, secondname=form.secondname.data, firstartist=form.firstartist.data, secondartist=form.secondartist.data, comment=form.comment.data, guestname=form.guestname.data) ## TODO: add user_id info from current user ID # create pair instance with input from form
+        pair = Pair(firstname=form.firstname.data, secondname=None, firstartist=form.firstartist.data, secondartist=None, comment=form.comment.data, guestname=form.guestname.data) ## TODO: add user_id info from current user ID # create pair instance with input from form
         db.session.add(pair)
         db.session.commit() # adds user to database
         flash(f'Success! Your single song was added. {form.firstname.data} - {form.firstartist.data}!', 'success')
         return redirect(url_for('singlesong'))
-    return render_template('singlesong.html', title="Home", form=form)
+    return render_template('singlesong.html', title="Single Song", form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

@@ -26,8 +26,8 @@ class User(db.Model, UserMixin):
 class Pair(db.Model): #data table for transition pair
     id = db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(30), nullable=False)
-    secondname = db.Column(db.String(30), nullable=False)
-    firstartist = db.Column(db.String(30), nullable=True)
+    secondname = db.Column(db.String(30), nullable=True)
+    firstartist = db.Column(db.String(30), nullable=False)
     secondartist = db.Column(db.String(30), nullable=True)
     comment = db.Column(db.Text)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -36,8 +36,16 @@ class Pair(db.Model): #data table for transition pair
     firstgenre = db.Column(db.String(30), nullable=True)
     secondgenre = db.Column(db.String(30), nullable=True)
     tags = db.Column(db.Text)
-    # genre switch #TODO: drop down menu --> genre to genres
-    # tags #TODO: type of transition
+    difficulty = db.Column(db.Integer, nullable=True)
+
+    #create getter and setter function for creating list that refers to children of transition
+    _children = db.Column(db.String, default='0')
+    @property
+    def children(self):
+        return [int(x) for x in self._children.split(';')]
+    @children.setter
+    def children(self, value):
+        self._children += ';%s' % value
 
     def __repr__(self):
         return f"Pair('{self.firstname}', '{self.secondname}', '{self.date_posted}' )"
