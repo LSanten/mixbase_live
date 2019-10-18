@@ -1,5 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Entries added by: {{ guestname }}</h1>
-    <p>Your variable: {{ guestname }}</p>
+    <h2>Entries added by: <b>{{ guestname }}</b></h2>
+{% for pair in posts %}
+<article class="media content-section">
+<div class="media-body">
+  <div class="article-metadata">
+    <a class="mr-2" href="/searchguest/{{ pair.guestname }}">{{ pair.user_id.username }}{{ pair.guestname }}</a>
+    <!--<small class="text-muted">{{ pair.user_id.username }}{{ pair.guestname }}</small>-->
+    <small class="text-muted">{{ pair.date_posted }}</small>
+  </div>
+  <h3>{{ pair.firstname }} <i>by</i> {{ pair.firstartist }}</h3>
+  {% if pair.secondname %}
+  <h3>{{ pair.secondname }} <i>by</i> {{ pair.secondartist }}</h3>
+  {% endif%}
+  <p class="article-content">{{ pair.comment }}</p>
+</div>
+</article>
+{% endfor %}
 {% endblock content %}

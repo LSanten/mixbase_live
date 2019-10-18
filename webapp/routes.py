@@ -64,8 +64,9 @@ def transitions():
 
 @app.route('/searchguest/<guestname>', methods=['GET', 'POST'])
 def searchguest(guestname=None):
-    pairs = Pair.query.all()
-    return render_template('searchguest.html', guestname=guestname, title="Search")
+    posts = Pair.query.filter_by(guestname=guestname)
+    #pairs = Pair.query.all()
+    return render_template('searchguest.html', guestname=guestname, title="Search", posts=posts)
 
 #DEBUG Routes
 @app.route('/hello') # access via  http://127.0.0.1:5000/hello/anything
