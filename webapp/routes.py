@@ -62,6 +62,11 @@ def transitions():
     pairs = Pair.query.all()
     return render_template('transitions.html', title='Transitions Database', pairs=pairs)
 
+@app.route('/searchguest/<guestname>', methods=['GET', 'POST'])
+def searchguest(guestname=None):
+    pairs = Pair.query.all()
+    return render_template('searchguest.html', guestname=guestname, title="Search")
+
 #DEBUG Routes
 @app.route('/hello') # access via  http://127.0.0.1:5000/hello/anything
 def hellos():
