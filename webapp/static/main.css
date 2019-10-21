@@ -8,6 +8,22 @@ h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+
 .bg-steel {
   background-color: #CA4E84;
 }
@@ -81,4 +97,13 @@ a.article-title:hover {
 
 .aligncenter {
     text-align: center;
+}
+
+.footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #827282;
+   color: #D9DBD9;
+   text-align: center;
 }
