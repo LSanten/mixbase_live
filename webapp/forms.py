@@ -55,9 +55,9 @@ class PairForm(FlaskForm): #Form for saving transition in database
 
     submit = SubmitField('Save Transition')
 
-    firstgenre = StringField('Genre A')
+    firstgenre = StringField('Genre of Song A')
 
-    secondgenre = StringField('Genre B')
+    secondgenre = StringField('Genre of Song B')
 
 class SingleForm(FlaskForm): #Form for saving single song (NOT transition) in database
     guestname = StringField('Your name')
