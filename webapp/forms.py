@@ -41,12 +41,12 @@ class LoginForm(FlaskForm):
 class PairForm(FlaskForm): #Form for saving transition in database
     guestname = StringField('Your name')
 
-    firstname = StringField('Name A', validators=[DataRequired()])
+    firstname = StringField('Title A', validators=[DataRequired()])
 
     firstartist = StringField('Artist A', validators=[DataRequired()])
 
     #secondname = StringField('Name B', validators=[DataRequired()])
-    secondname = StringField('Name B', validators=[DataRequired()]) #this is changed to allow single song inputs
+    secondname = StringField('Title B', validators=[DataRequired()]) #this is changed to allow single song inputs
 
     #secondartist = StringField('Artist B', validators=[DataRequired()])
     secondartist = StringField('Artist B', validators=[DataRequired()])
@@ -62,7 +62,7 @@ class PairForm(FlaskForm): #Form for saving transition in database
 class SingleForm(FlaskForm): #Form for saving single song (NOT transition) in database
     guestname = StringField('Your name')
 
-    firstname = StringField('Name A', validators=[DataRequired()])
+    firstname = StringField('Title A', validators=[DataRequired()])
 
     firstartist = StringField('Artist A', validators=[DataRequired()])
 
