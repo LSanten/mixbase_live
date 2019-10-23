@@ -3,6 +3,7 @@ from webapp import app, db, bcrypt
 from webapp.forms import RegistrationForm, LoginForm, PairForm, SingleForm
 from webapp.models import User, Pair
 from flask_login import login_user, current_user
+from sqlalchemy import func
 
 
 @app.route('/', methods=['GET', 'POST']) #'/' tells us that it's the index of a page | access via  http://127.0.0.1:5000/
@@ -64,8 +65,7 @@ def transitions():
 
 @app.route('/searchguest/<guestname>', methods=['GET', 'POST'])
 def searchguest(guestname=None):
-    posts = Pair.query.filter_by(guestname=guestname)
-    #pairs = Pair.query.all()
+    posts = Pair.query.filter(func.lower(Pair.guestname) == func.lower(guestname))
     return render_template('searchguest.html', guestname=guestname, title="Search", posts=posts)
 
 #DEBUG Routes
