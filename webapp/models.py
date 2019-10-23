@@ -39,6 +39,7 @@ class Pair(db.Model): #data table for transition pair
     difficulty = db.Column(db.Integer, nullable=True)
 
     #create getter and setter function for creating list that refers to children of transition
+    #http://frankvalcarcel.com/blog/conveniently-storing-lists-in-database/
     _children = db.Column(db.String, default='0')
     @property
     def children(self):
