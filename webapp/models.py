@@ -3,7 +3,7 @@ Leon Santen
 
 These are the methods of the webmix database as a part of the package in webapp_run.py
 """
-from datetime import datetime
+from datetime import datetime, date
 from webapp import db, login_manager
 from flask_login import UserMixin #UserMixin is class that checks user for us
 
