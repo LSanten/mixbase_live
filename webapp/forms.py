@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from webapp.models import User
@@ -41,15 +41,15 @@ class LoginForm(FlaskForm):
 class PairForm(FlaskForm): #Form for saving transition in database
     guestname = StringField('Your name')
 
-    firstname = StringField('Title A', validators=[DataRequired()])
+    firstname = StringField('Title A <b>*</b>', validators=[DataRequired()])
 
-    firstartist = StringField('Artist A', validators=[DataRequired()])
+    firstartist = StringField('Artist A <b>*</b>', validators=[DataRequired()])
 
     #secondname = StringField('Name B', validators=[DataRequired()])
-    secondname = StringField('Title B', validators=[DataRequired()]) #this is changed to allow single song inputs
+    secondname = StringField('Title B <b>*</b>', validators=[DataRequired()]) #this is changed to allow single song inputs
 
     #secondartist = StringField('Artist B', validators=[DataRequired()])
-    secondartist = StringField('Artist B', validators=[DataRequired()])
+    secondartist = StringField('Artist B <b>*</b>', validators=[DataRequired()])
 
     comment = TextAreaField('Any notes?')
 
@@ -59,15 +59,19 @@ class PairForm(FlaskForm): #Form for saving transition in database
 
     secondgenre = StringField('Genre of Song B')
 
+    recaptcha = RecaptchaField()
+
 class SingleForm(FlaskForm): #Form for saving single song (NOT transition) in database
     guestname = StringField('Your name')
 
-    firstname = StringField('Title A', validators=[DataRequired()])
+    firstname = StringField('Title A <b>*</b>', validators=[DataRequired()])
 
-    firstartist = StringField('Artist A', validators=[DataRequired()])
+    firstartist = StringField('Artist A <b>*</b>', validators=[DataRequired()])
 
     comment = TextAreaField('Any notes?')
 
     submit = SubmitField('Save Song')
 
     firstgenre = StringField('Genre')
+
+    recaptcha = RecaptchaField()
