@@ -36,7 +36,7 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('home') }}"><b>Save New Pair</b></a>
               <a class="nav-item nav-link" href="{{ url_for('singlesong') }}"><b>Save Single Song</b></a>
-              <a class="nav-item nav-link" href="{{ url_for('transitions') }}">Show Database</a>
+              <a class="nav-item nav-link" href="{{ url_for('transitions') }}">Show Transitions</a>
               <!--<a class="nav-item nav-link" href="hello/debug">Debug</a>-->
             </div>
             <!-- Navbar Right Side -->
@@ -54,7 +54,7 @@
             {% with messages = get_flashed_messages(with_categories=true) %}
               {% if messages %}
                 {% for category, message in messages %}
-                  <div class="alert altert-{{ category }}">
+                  <div class="alert alert-{{ category }}">
                     {{ message }}
                   </div>
                 {% endfor%}
@@ -65,7 +65,7 @@
           <div class="col-md-4">
             <div class="content-section">
               <h3>What is <b>Mix</b>Base?</h3>
-              <p class='text-muted'>MixBase is a handy DJ-transition manager that saves your transitions in a database and makes them easily accessible to you and your friends.
+              <p class='text-muted'>MixBase is a handy DJ-transition manager that saves your transitions in a database and makes them easily accessible to you and your friends. While you're DJing, look up a song that you're playing and see if anyone submitted a transition that works well with your current song.</br> </br><b>Update:</b> I will soon release a new version that will go through all the transitions and create a DJ-set playlist based on all the submitted song pairs.
               <br>
               <img src="{{ url_for('static', filename='icon.png') }}" alt="MixBase icon, two nodes with sound waves in between them" style="height:120px;"/>
               <br>
