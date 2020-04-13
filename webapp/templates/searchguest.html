@@ -8,11 +8,13 @@
   <div class="article-metadata">
     <a class="mr-2" href="/searchguest/{{ pair.guestname }}">{{ pair.user_id.username }}{{ pair.guestname }}</a>
     <!--<small class="text-muted">{{ pair.user_id.username }}{{ pair.guestname }}</small>-->
-    <small class="text-muted">{{ pair.date_posted }}</small>
+    <small class="text-muted">{{ pair.date_posted.strftime("%b %d %Y %H:%M") }} UTC</small>
   </div>
-  <h3>{{ pair.firstname }} <i>by</i> {{ pair.firstartist }}</h3>
   {% if pair.secondname %}
-  <h3>{{ pair.secondname }} <i>by</i> {{ pair.secondartist }}</h3>
+  <h3><img src="{{ url_for('static', filename='transition-A.png') }}" alt="Transition A, Turntable Icon" height="40" width="40"> {{ pair.firstname }} <i>by</i> {{ pair.firstartist }}</h3>
+  <h3><img src="{{ url_for('static', filename='transition-B.png') }}" alt="Transition A, Turntable Icon" height="40" width="40"> {{ pair.secondname }} <i>by</i> {{ pair.secondartist }}</h3>
+  {% else %}
+  <h3><img src="{{ url_for('static', filename='transition-S.png') }}" alt="Transition A, Turntable Icon" height="40" width="40"> {{ pair.firstname }} <i>by</i> {{ pair.firstartist }}</h3>
   {% endif%}
   <p class="article-content">{{ pair.comment }}</p>
 </div>

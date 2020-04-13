@@ -4,6 +4,7 @@ from webapp.forms import RegistrationForm, LoginForm, PairForm, SingleForm
 from webapp.models import User, Pair
 from flask_login import login_user, current_user
 from sqlalchemy import func, desc
+import time
 
 
 @app.route('/', methods=['GET', 'POST']) #'/' tells us that it's the index of a page | access via  http://127.0.0.1:5000/
